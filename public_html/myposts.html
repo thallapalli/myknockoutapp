@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>My Posts</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="knockout-3.4.2.js"></script>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                </tr>
+            </thead>	
+           <tbody data-bind="foreach: posts">
+
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: title"></td>		
+                </tr>
+            </tbody> 
+        </table>
+        <script>
+           function dealModel() {
+        var self = this;
+        self.posts = ko.observableArray([]);
+
+        $.getJSON("http://localhost:3000/posts", function(data) {
+            self.posts(data);
+        },
+       ).fail(function(){
+         console.log("request failed");
+       });
+    }
+    ko.applyBindings(new dealModel());
+        </script>
+    </body>
+</html>
