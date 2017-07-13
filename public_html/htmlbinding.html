@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Html Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+The html binding causes the associated DOM element to display the HTML specified by your parameter.
+
+Typically this is useful when values in your view model are actually strings of HTML markup that you want to render.
+<div data-bind="html: details"></div>
+
+
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.details=ko.observable();
+	this.details("<a href='http://knockoutjs.com/documentation/html-binding.html'>see my details </a>");
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Html Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+
+<h1 data-bind="text: city"> </h1>
+<p data-bind="with: coords">
+    Latitude: <span data-bind="text: latitude"> </span>,
+    Longitude: <span data-bind="text: longitude"> </span>
+</p>
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.city=
+	ko.observable("London");
+	this.coords=ko.observable(
+                     {
+                     	latitude:  51.5001524,
+                        longitude: -0.1262362
+
+                     }
+		);
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

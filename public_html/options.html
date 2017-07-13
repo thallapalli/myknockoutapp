@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Click Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+<p>Select Example: </p>
+<select data-bind="options:selectlist,
+ optionsText: 'name',
+  optionsCaption: 'Choose...',
+  value: selectedCountry,
+
+
+" multiple="true"></select>
+<button data-bind="click:addOption"> add option </button>
+<p>select Contry:<span data-bind="text:selectedCountry()"></span>
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.selectlist=ko.observableArray
+	(
+		[
+		{name:'India',code:'In'},
+		{name:'USA',code:'US'}
+
+		]
+
+	),
+	this.addOption=function(){
+		this.selectlist.push({name:'India1',code:'In1'});
+	},
+	this.selectedCountry=ko.observable();
+	
+	
+
+	
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

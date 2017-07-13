@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Html Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+
+<label>
+<input type="checkbox" data-bind="checked:displayMessage">Click me to show message
+</label>
+<div data-bind="if:displayMessage"> I am enabled due to if condition
+</div>
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.displayMessage=
+	ko.observable(false);
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

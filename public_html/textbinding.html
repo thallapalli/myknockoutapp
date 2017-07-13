@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Visible bindin</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+The text binding causes the associated DOM element to display the text value of your parameter.<div data-bind="text: myMessage">
+   
+</div>
+
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.myMessage=ko.observable();
+	this.myMessage("Hello World");
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

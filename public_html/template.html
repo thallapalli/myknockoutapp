@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Template Example</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+<h2>
+	
+	Participants:
+</h2>
+<div data-bind="template:{name:'person-template',foreach:people}">
+</div>
+<script type="text/html" id="person-template">
+	<h3 data-bind="text:name"></h3>
+	<p>Credits:<span data-bind="text:credits"></span>
+</script>
+
+
+
+
+Seasons:
+
+<div data-bind="template:{name:'season-template',foreach:seasons}"></div>
+
+
+<script type="text/html" id="season-template">
+	<p data-bind="text:name"></p>
+	<p data-bind="text:months"></p>
+</script>
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.people=[{name:'Thallapalli',credits:250},
+	{name:'Karnakar',credits:300}];
+	this.seasons=[
+	{name:'Spring',months:['March','April','May']},
+	{name:'Summer',months:['June','July','August']},
+	{name:'Autumn',months:['September','october','November']}
+
+	];
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

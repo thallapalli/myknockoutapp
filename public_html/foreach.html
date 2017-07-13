@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Html Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+
+<table>
+<thead>
+	<tr>
+	<th>First Name</th>
+	<th>Last Name</th>
+	</tr>
+</thead>	
+<tbody data-bind="foreach:people">
+	
+<tr>
+<td data-bind="text:firstName"></td>
+<td data-bind="text:lastName"></td>		
+</tr>
+</tbody>
+</table>
+
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.people=
+	[
+	{firstName:'Karnakar',lastName:'Thallapalli'},
+	{firstName:'Tinku',lastName:'Thallapalli2'},
+	{firstName:'Chai',lastName:'Thallapalli3'}
+	];
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

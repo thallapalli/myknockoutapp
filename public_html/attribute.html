@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Html Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+The attr binding provides a generic way to set the value of any attribute for the associated DOM element. This is useful, for example, when you need to set the title attribute of an element, the src of an img tag, or the href of a link based on values in your view model, with the attribute value being updated automatically whenever the corresponding model property changes.
+<a data-bind="attr: { href: url, title: details }">
+    Report
+</a>
+
+
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.url=ko.observable("http://knockoutjs.com/documentation/attr-binding.html");
+	this.details=ko.observable("see My Details");
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Click Binding</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+<p>Login Name:<input data-bind="textInput:userName" </p>
+<p>Password:<input type="password" data-bind="textInput:password" </p>
+
+ViewModel:
+<pre data-bind="text: userName"></pre>
+
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.userName=ko.observable();
+	this.password=ko.observable();
+
+	
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>

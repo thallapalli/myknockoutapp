@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> My Bindings Example</title>
+	<script type="text/javascript" src="knockout-3.4.2.js"></script>
+
+</head>
+<body>
+
+<a href="C:/knockout/myknockout/index.html">index</a>
+<span data-bind="text:HelloWorld"></span>
+</body>
+<script>
+function  myBindingsViewModel(){
+	this.HelloWorld=ko.observable('Hello World Karnakar1');
+	this.myArray=ko.observableArray(['element1','2','elements']);
+	
+	this.myArrayOfObjects=ko.observableArray(
+
+	[
+	{
+		name:'karnakar',
+		age:'29'
+	},
+	{
+		name:'tinku',
+		age:'2'
+	},
+	{
+		name:'chai',
+		age:'24'
+	}
+
+	]
+
+	);
+	this.myfirstName=ko.observable('Karnakar');
+	this.mylastName=ko.observable('Thallapalli');
+	this.myfullName=ko.computed(function() {
+    return  this.myfirstName()+' '+this.mylastName();
+    },this)
+	
+
+};
+ko.applyBindings(new myBindingsViewModel());
+</script>
+</html>
